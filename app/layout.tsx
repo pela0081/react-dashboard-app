@@ -1,6 +1,7 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
+import RegisterServiceWorker from '@/app/ui/register-service-worker';
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className={`${inter.className} antialiased`}>{children}</body>
+      <RegisterServiceWorker />
     </html>
   );
 }
